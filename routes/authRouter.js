@@ -7,6 +7,7 @@ const upload = require('../uploads/upload.js')
 router.post('/sign-up', upload.single('picture'), authController.registerUser)
 router.post('/sign-in', authController.signInUser)
 router.post('/sign-out', authController.signOutUser)
+router.put('/:id', authController.updatePassword)
 
 
 
@@ -23,6 +24,9 @@ router.get('/sign-in', (req, res) => {
 
 router.get('/sign-out', authController.signOutUser) 
 
+router.get('/:id/update-password', (req, res) => {
+  res.render('./auth/update-password.ejs')
+})
 
 
 module.exports = router
