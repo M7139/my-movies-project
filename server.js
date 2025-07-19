@@ -5,6 +5,7 @@ const session = require('express-session')
 const mongoose = require('./db')
 const authRouter = require('./routes/authRouter.js')
 const userRouter = require('./routes/userRouter.js')
+const movieRouter = require('./routes/moviesRouter.js')
 require('dotenv').config()
 
 const PORT = process.env.PORT || 3000
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/auth', authRouter)
 app.use('/users', userRouter)
+app.use('/movies', movieRouter)
 
 app.get('/', (req, res) => {
   res.render('index.ejs', { user: req.session.user })
