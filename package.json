@@ -1,0 +1,31 @@
+{
+  "name": "my-movies-project",
+  "version": "1.0.0",
+  "description": "A website user can organize their list of movies and tv series by adding them to different categories, like watched, watching, and plan to watch. and the user can update their password, the image of their profile and the user should register for the website to use it. The user can register for the web by inserting a username, email address, and password",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M7139/my-movies-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M7139/my-movies-project/issues"
+  },
+  "homepage": "https://github.com/M7139/my-movies-project#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.16.4",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "session": "^0.1.0"
+  }
+}
