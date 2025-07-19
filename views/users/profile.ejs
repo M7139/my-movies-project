@@ -1,0 +1,13 @@
+<%- include('../partials/_header.ejs') %>
+
+<h2><%= user.first %> <%= user.last %>'s Profile</h2>
+<img src="/<%= user.picture %>" alt="Profile Picture" width="150" />
+
+
+<div>
+  <a href=<%= `/auth/${user._id}/update-password` %>>Update Password</a>
+</div>
+
+
+
+<%- include('../partials/_footer.ejs') %>
