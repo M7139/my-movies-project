@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My movies</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+
+      <% if (!user) { %>
+
+      <a href="/auth/sign-up">Sign Up</a>
+      <a href="/auth/sign-in">Sign In</a>
+
+      <% } else { %>
+      <a href="/users/<%= user._id %>">My Profile</a>
+      <a href="/auth/sign-out">Sign Out</a>
+      <a href="../users/watching.ejs">watching</a>
+      <a href="../users/watched.ejs">watched</a>
+      <a href="../users/will-watch.ejs">will watch</a>
+      <% } %>
+    </nav>
+    <main></main>
+  </body>
+</html>
