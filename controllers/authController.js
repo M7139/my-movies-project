@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 const User = require('../models/User.js')
 
-const registerUser = async (req, res) => {
+const auth_sign_up_post = async (req, res) => {
   try {
     const userInDatabase = await User.exists({ email: req.body.email })
     if (userInDatabase) {
@@ -28,7 +28,7 @@ const registerUser = async (req, res) => {
   }
 }
 
-const signInUser = async (req, res) => {
+const auth_sign_in_post = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email })
     if (!user) {
@@ -51,7 +51,7 @@ const signInUser = async (req, res) => {
   }
 }
 
-const signOutUser = (req, res) => {
+const auth_sign_out_post = (req, res) => {
   try {
     req.session.destroy()
     res.redirect('/')
@@ -60,7 +60,7 @@ const signOutUser = (req, res) => {
   }
 }
 
-const updatePassword = async (req, res) => {
+const auth_update_poassword_put = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     if (!user) {
@@ -88,8 +88,8 @@ const updatePassword = async (req, res) => {
 
 
 module.exports = {
-  registerUser,
-  signInUser,
-  signOutUser,
-  updatePassword
+  auth_sign_up_post,
+  auth_sign_in_post,
+  auth_sign_out_post,
+  auth_update_poassword_put
 }
