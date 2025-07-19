@@ -1,5 +1,5 @@
-const Movie = require('../models/Movie')
-const User = require('../models/User')
+const Movie = require('../models/Movie.js')
+const User = require('../models/User.js')
 
 // Home page - Display all movies and allow adding to lists
 const movie_index = async (req, res) => {
@@ -12,3 +12,4 @@ const movie_index = async (req, res) => {
     res.status(500).send('Error fetching movies')
   }
 }
+
