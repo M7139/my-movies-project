@@ -13,3 +13,6 @@ const movie_index = async (req, res) => {
   }
 }
 
+module.exports = {
+movie_index
+}

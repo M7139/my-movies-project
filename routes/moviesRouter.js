@@ -6,3 +6,7 @@ const upload = require('../uploads/upload.js')
 // Home page - Display all movies and form to add new ones
 router.get('/', movieController.movie_index)
 // router.post('/', upload.single('picture'), movieController.movie_create_post)
+
+
+
+module.exports = router
