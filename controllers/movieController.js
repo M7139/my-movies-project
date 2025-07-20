@@ -1,48 +1,39 @@
 const Movie = require('../models/Movie.js')
 const User = require('../models/User.js')
+require('dotenv').config()
 
-// Home page - Display all movies and allow adding to lists
-const movie_index = async (req, res) => {
-    const movies = await Movie.find()
-    res.send("Home Page")
-    // res.render('movies/index', { movies, user: req.session.user })
-}
+const movieSearch_get = async (req, res) => {
+  // get movie name from query
+  const searchTerm = req.query.movie_name
 
-// Add a new movie to a list
-const movie_create_post = async (req, res) => {
-    const { title, type, description } = req.body
-    const listType = req.body.listType // 'watched', 'watching', or 'willWatch'
-    const userId = req.session.user._id
+  // get api key from enviroment variables
+  const apiKey = process.env.OMDB_API_KEY
 
-    // Create new movie
-    const movie = await Movie.create({
-      title,
-      type,
-      description,
-      picture: req.file ? req.file.path : null
-    })
+  // empty array for movies
+  let movies = []
 
-    // Add to user's list
-    await User.findByIdAndUpdate(userId, {
-      $push: { [listType]: movie._id }
-    })
+  try {
+    // fetch movie data from omdb api
+    const response = await fetch(
+      `http://www.omdbapi.com/?s=${encodeURIComponent(
+        searchTerm
+      )}&apikey=${apiKey}`
+    )
 
-    res.redirect('/movies')
-  
-}
+    // get response as json
+    const data = await response.json()
 
-// Display movies in a page list
-const movie_list = async (req, res) => {
-    const listType = req.params.listType // 'watched', 'watching', or 'willWatch'
-    const userId = req.session.user._id
-    const user = await User.findById(userId).populate(listType)
-    const movies = user[listType]
-    res.render(`movies/${listType}`, { movies, listType, user: req.session.user })
+    // check 'response' field in the api result
+    if (data.Response === 'True') {
+      movies = data.Search // if request is successful movies = response data
+    }
+  } catch (err) {
+    console.error('Fetch error from OMDb:', err.message)
+  }
 
+  res.render('./movies/movie-list.ejs', { movies, searchTerm })
 }
 
 module.exports = {
-movie_index,
-movie_create_post,
-movie_list
+  movieSearch_get
 }
