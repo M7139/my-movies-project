@@ -22,6 +22,31 @@ const getUserById = async (req, res) => {
   }
 }
 
+const user_edit_get = async (req,res) =>{
+  const currentUser = await User.findById(req.params.id)
+  res.render("users/edit.ejs", {user : currentUser})
+} 
+
+const user_update_post = async (req, res) => {
+  const updateData = {
+    first: req.body.first,
+    last: req.body.last,
+    email: req.body.email,
+  }
+
+  if (req.file) {
+    updateData.picture = req.file.path
+  } else {
+    updateData.picture = req.body.picture
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(req.params.id, updateData, { new: true })
+  res.redirect(`/users/${updatedUser._id}`)
+}
+
+
 module.exports = {
-  getUserById
+  getUserById,
+  user_edit_get,
+  user_update_post
 }
