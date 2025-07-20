@@ -6,7 +6,7 @@ const movieController = require('../controllers/movieController.js')
 router.get('/', movieController.movieSearch_get)
 
 router.get('/movie-list', (req, res) => {
-  res.render('./movies/movie-list.ejs')
+  res.render('./movies/movie-list.ejs', { movies: [], searchTerm: '' })
 })
 
 module.exports = router
