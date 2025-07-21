@@ -16,10 +16,10 @@
       <% } else { %>
       <a href="/users/<%= user._id %>">My Profile</a>
       <a href="/auth/sign-out">Sign Out</a>
-      <a href="/movies/<%= user._id %>/watching">Watching</a>
-      <a href="/movies/<%= user._id %>/watched">Watched</a>
-      <a href="/movies/<%= user._id %>/will-watch">Will Watch</a>
-      <a href="/movies/<%= user._id %>/edit">Edit Profile</a>
+      <a href="/users/<%= user._id %>/watching">Watching</a>
+      <a href="/users/<%= user._id %>/watched">Watched</a>
+      <a href="/users/<%= user._id %>/will-watch">Will Watch</a>
+      <a href="/users/<%= user._id %>/edit">Edit Profile</a>
       <a href="/movies/movie-list">Movies List</a>
       <% } %>
     </nav>
