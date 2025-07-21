@@ -10,7 +10,9 @@
   <% if (movies && movies.length > 0) { %>
     <% movies.forEach(movie => { %>
       <li>
-        <strong><%= movie.Title %></strong> (<%= movie.Year %>)
+        <a href="/movies/<%= movie.imdbID %>">
+          <strong><%= movie.Title %></strong> (<%= movie.Year %>)
+        </a>
         <br />
         <img src="<%= movie.Poster ? movie.Poster : '/Default/default_movie_poster.jpg' %>" 
              alt="Poster for <%= movie.Title %>" 
