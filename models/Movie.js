@@ -8,7 +8,8 @@ const movieSchema = new mongoose.Schema({
         enum: ["movie", "series"], 
         required: true
     },
-    description : {type : String}
+    description : {type : String},
+    imdbID: { type: String, unique: true }
 })
 
 const Movie = mongoose.model('Movie', movieSchema)
