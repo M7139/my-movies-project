@@ -75,7 +75,9 @@ const remove_from_list = async (req, res) => {
     }
     
     await user.save();
-    res.redirect(`/users/${id}/${listType}`);
+    
+    // Redirect to the correct list page with hyphen in the URL
+    res.redirect(`/users/${id}/${listType.toLowerCase().replace('watch', '-watch')}`);
   } catch (error) {
     console.error("Error removing from list:", error.message);
     res.status(500).send("Server error");
