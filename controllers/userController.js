@@ -66,18 +66,22 @@ const remove_from_list = async (req, res) => {
     
     const user = await User.findById(id);
     
+    // Remove from the appropriate list
     if (listType === 'watched') {
       user.watched = user.watched.filter(movie => !movie.equals(movieId));
+      redirectPath = `/users/${id}/watched`;
     } else if (listType === 'watching') {
       user.watching = user.watching.filter(movie => !movie.equals(movieId));
+      redirectPath = `/users/${id}/watching`;
     } else if (listType === 'willWatch') {
       user.willWatch = user.willWatch.filter(movie => !movie.equals(movieId));
+      redirectPath = `/users/${id}/will-watch`;
     }
     
     await user.save();
     
-    // Redirect to the correct list page with hyphen in the URL
-    res.redirect(`/users/${id}/${listType.toLowerCase().replace('watch', '-watch')}`);
+    // Redirect to the correct list page
+    res.redirect(redirectPath);
   } catch (error) {
     console.error("Error removing from list:", error.message);
     res.status(500).send("Server error");
