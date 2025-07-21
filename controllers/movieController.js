@@ -34,6 +34,27 @@ const movieSearch_get = async (req, res) => {
   res.render('./movies/movie-list.ejs', { movies, searchTerm })
 }
 
+
+const movieDetail_get = async (req, res) => {
+  const imdbID = req.params.imdbID
+  const apiKey = process.env.OMDB_API_KEY
+  try {
+    const response = await fetch(
+      `http://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`
+    )
+    const movie = await response.json()
+    if (movie.Response === 'True') {
+      res.render('./movies/show.ejs', { movie })
+    } else {
+      res.status(404).send('Movie not found.')
+    }
+  } catch (err) {
+    console.error('Error fetching movie details:', err.message)
+    res.status(500).send('Server error.')
+  }
+}
+
 module.exports = {
-  movieSearch_get
+  movieSearch_get,
+  movieDetail_get
 }
