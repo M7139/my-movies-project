@@ -13,13 +13,13 @@ const auth_sign_up_post = async (req, res) => {
     }
 
     const hashedPassword = bcrypt.hashSync(req.body.password, 12)
-
+    
     await User.create({
       email: req.body.email,
       password: hashedPassword,
       first: req.body.first,
       last: req.body.last,
-      picture: req.file ? req.file.path : null
+      picture: req.file ? req.file.path : "Default/default_pfp.jpg"
     })
 
     res.render('./auth/thanks.ejs')
