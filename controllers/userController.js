@@ -2,7 +2,7 @@ const User = require('../models/User.js')
 const Movie = require('../models/Movie.js')
 
 
-const getUserById = async (req, res) => {
+const user_profile_get = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     const movies = await Movie.find({author : user._id})
@@ -28,6 +28,7 @@ const user_edit_get = async (req,res) =>{
 } 
 
 const user_update_post = async (req, res) => {
+   
   const updateData = {
     first: req.body.first,
     last: req.body.last,
@@ -46,7 +47,7 @@ const user_update_post = async (req, res) => {
 
 
 module.exports = {
-  getUserById,
+  user_profile_get,
   user_edit_get,
   user_update_post
 }
