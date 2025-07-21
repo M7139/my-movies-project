@@ -3,8 +3,13 @@
   <h2>Edit Profile</h2>
 <form action="/users/<%= user._id %>" method="POST" enctype="multipart/form-data">
   <input type="text" name="first" value="<%= user.first %>" required />
+  <br>
   <input type="text" name="last" value="<%= user.last %>" required />
+  <br>
   <input type="email" name="email" value="<%= user.email %>" required />
+  <br>
+  <img src="/<%= user.picture %>" alt="Profile Picture" width="150" />
+  <br>
   <input type="file" name="picture" />
   <button type="submit">Save Changes</button>
 </form>
