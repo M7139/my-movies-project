@@ -34,7 +34,6 @@ const movieSearch_get = async (req, res) => {
   res.render('./movies/movie-list.ejs', { movies, searchTerm })
 }
 
-
 const movieDetail_get = async (req, res) => {
   const imdbID = req.params.imdbID
   const apiKey = process.env.OMDB_API_KEY
