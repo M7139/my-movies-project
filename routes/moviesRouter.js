@@ -9,4 +9,6 @@ router.get('/movie-list', (req, res) => {
   res.render('./movies/movie-list.ejs', { movies: [], searchTerm: '' })
 })
 
+router.get('/:imdbID', movieController.movieDetail_get)
+
 module.exports = router
