@@ -10,5 +10,9 @@ router.get('/movie-list', (req, res) => {
 })
 
 router.get('/:imdbID', movieController.movieDetail_get)
+router.post('/:imdbID/add-to-list', movieController.addToList)
+
+
+
 
 module.exports = router
