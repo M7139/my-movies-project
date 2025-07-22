@@ -42,6 +42,9 @@ const auth_sign_in_post = async (req, res) => {
 
     req.session.user = {
       email: user.email,
+      first: user.first,
+      last: user.last,
+      picture: user.picture,
       _id: user._id
     }
 
@@ -60,7 +63,7 @@ const auth_sign_out_post = (req, res) => {
   }
 }
 
-const auth_update_poassword_put = async (req, res) => {
+const auth_update_password_put = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     if (!user) {
@@ -91,5 +94,5 @@ module.exports = {
   auth_sign_up_post,
   auth_sign_in_post,
   auth_sign_out_post,
-  auth_update_poassword_put
+  auth_update_password_put
 }
