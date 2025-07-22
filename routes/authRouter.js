@@ -24,7 +24,7 @@ router.get('/sign-in', (req, res) => {
 router.get('/sign-out', authController.auth_sign_out_post) 
 
 router.get('/:id/update-password', (req, res) => {
-  res.render('./auth/update-password.ejs')
+  res.render('./auth/update-password.ejs',{user:req.session.user})
 })
 
 
