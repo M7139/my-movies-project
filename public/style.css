@@ -7,7 +7,7 @@ body{
 }
 
 nav{
-    background-color: black;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,7 @@ nav{
     width: 50px; /* Adjust size as needed */
     height: auto; /* Maintain aspect ratio */
     cursor: pointer; /* Indicate it's clickable */
-    border-radius: 150px;
+    border-radius: 250px;
     margin-left: auto;
     margin-right: 35px;
 }
@@ -50,3 +50,8 @@ nav{
 .dropdown-menu a:hover {
     background-color: #f0f0f0; /* Highlight on hover */
 }
+
+/* .search-bar{
+    margin-left: 40%;
+    
+} */

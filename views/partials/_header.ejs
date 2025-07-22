@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Movies</title>
     <link rel="stylesheet" href="/style.css" />
     <script src="/script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <% if (!user) { %>
-            <a href="/auth/sign-up">Sign Up</a>
-            <a href="/auth/sign-in">Sign In</a>
-        <% } else { %>
-            <a href="#" class="profile-link">
-                <img src="/<%= user.picture %>" alt="Profile Picture" class="profile-pic" />
-            </a>
-            <div class="dropdown-menu" id="dropdownMenu">
-                <a href="/users/<%= user._id %>">Profile</a>
-                <a href="/users/<%= user._id %>/watching">Watching</a>
-                <a href="/users/<%= user._id %>/watched">Watched</a>
-                <a href="/users/<%= user._id %>/will-watch">Will Watch</a>
-                <a href="/movies/movie-list">Movies List</a>
-                <a href="/auth/sign-out">Sign Out</a>
-            </div>
-        <% } %>
+      <% if (!user) { %>
+      <a href="/auth/sign-up">Sign Up</a>
+      <a href="/auth/sign-in">Sign In</a>
+      <% } else { %>
+
+      <form action="/movies" method="GET">
+        <input type="text" name="movie_name" required class="search-bar" />
+        <button type="submit" class="search-submit">search</button>
+      </form>
+
+      <a href="#" class="profile-link">
+        <img
+          src="/<%= user.picture %>"
+          alt="Profile Picture"
+          class="profile-pic"
+        />
+      </a>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="/users/<%= user._id %>">Profile</a>
+        <a href="/users/<%= user._id %>/watching">Watching</a>
+        <a href="/users/<%= user._id %>/watched">Watched</a>
+        <a href="/users/<%= user._id %>/will-watch">Will Watch</a>
+        <a href="/auth/sign-out">Sign Out</a>
+      </div>
+      <% } %>
     </nav>
-    <main></main>
-</body>
+  </body>
 </html>
