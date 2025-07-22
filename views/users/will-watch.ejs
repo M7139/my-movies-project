@@ -4,6 +4,7 @@
 <div class="movie-grid">
   <% movies.forEach(movie => { %>
   <div class="movie-card">
+    <a href="/movies/<%= movie.imdbID %>">
     <% if (movie.picture) { %>
     <img
       src="<%= movie.picture %>"
@@ -11,6 +12,7 @@
       class="movie-poster"
     />
     <% } %>
+    </a>
     <h3><%= movie.title %></h3>
     <p><%= movie.description %></p>
     <form action="/users/<%= user._id %>/remove/<%= movie._id %>" method="POST">

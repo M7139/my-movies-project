@@ -63,28 +63,47 @@ const remove_from_list = async (req, res) => {
   try {
     const { id, movieId } = req.params;
     const { listType } = req.body;
-    
-    const user = await User.findById(id);
-    
-    // Remove from the appropriate list
-    if (listType === 'watched') {
-      user.watched = user.watched.filter(movie => !movie.equals(movieId));
-      redirectPath = `/users/${id}/watched`;
-    } else if (listType === 'watching') {
-      user.watching = user.watching.filter(movie => !movie.equals(movieId));
-      redirectPath = `/users/${id}/watching`;
-    } else if (listType === 'willWatch') {
-      user.willWatch = user.willWatch.filter(movie => !movie.equals(movieId));
-      redirectPath = `/users/${id}/will-watch`;
+
+    // 1. Verify session user matches the requested user ID
+    if (req.session.user._id.toString() !== id) {
+      return res.status(403).render('error', { 
+        message: 'Unauthorized: You can only modify your own lists' 
+      });
     }
-    
+
+    // 2. Find user and verify existence
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).render('error', { message: 'User not found' });
+    }
+
+    // 3. Remove movie from the specified list
+    const listMap = {
+      'watched': 'watched',
+      'watching': 'watching',
+      'willWatch': 'willWatch'
+    };
+
+    const listField = listMap[listType];
+    if (!listField) {
+      return res.status(400).render('error', { message: 'Invalid list type' });
+    }
+
+    user[listField] = user[listField].filter(movie => !movie.equals(movieId));
     await user.save();
+
+    // 4. Redirect back to the appropriate list
+    const redirectPath = {
+      'watched': 'watched',
+      'watching': 'watching',
+      'willWatch': 'will-watch'
+    }[listType];
+
+    res.redirect(`/users/${id}/${redirectPath}`);
     
-    // Redirect to the correct list page
-    res.redirect(redirectPath);
   } catch (error) {
-    console.error("Error removing from list:", error.message);
-    res.status(500).send("Server error");
+    console.error("Remove from list error:", error);
+    res.status(500).render('error', { message: 'Server error' });
   }
 };
 
