@@ -1,0 +1,52 @@
+body{
+    background-color: grey;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+nav{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    position: relative;
+}
+
+.profile-link {
+    display: inline-block; /* Allows padding around the image */
+    margin-left: auto;
+}
+
+.profile-pic {
+    width: 50px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Indicate it's clickable */
+    border-radius: 150px;
+    margin-left: auto;
+    margin-right: 35px;
+}
+
+.dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute; /* Position it below the profile picture */
+    background-color: white; /* Background color */
+    border: 1px solid #ccc; /* Border for visibility */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    z-index: 1000; /* Ensure it appears above other elements */
+    margin-top: 310px;
+    right: 5px;
+}
+
+.dropdown-menu a {
+    display: block; /* Stack links */
+    padding: 10px 15px; /* Padding for clickable area */
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Text color */
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+}
