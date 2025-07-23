@@ -20,3 +20,26 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 })
+
+document.addEventListener('DOMContentLoaded', function () {
+  const listLink = document.querySelector('.list-link')
+  const listMenu = document.getElementById('listMenu')
+
+  if(listLink && listMenu){
+    listLink.addEventListener("click",function(event){
+      event.preventDefault()
+      event.stopPropagation()
+      listMenu.style.display = 
+      listMenu.style.display === "block" ? "none" : "block"   
+    })
+    document.addEventListener('click', function (event) {
+          if (
+        !listLink.contains(event.target) &&
+        !listMenu.contains(event.target)
+      ) {
+        listMenu.style.display = 'none'
+      }
+    })
+  }
+
+})
