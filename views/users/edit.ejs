@@ -1,19 +1,57 @@
 <%- include("../partials/_header") %>
 
-  <h2>Edit Profile</h2>
-<form action="/users/<%= user._id %>" method="POST" enctype="multipart/form-data">
-  <input type="text" name="first" value="<%= user.first %>" required />
-  <br>
-  <input type="text" name="last" value="<%= user.last %>" required />
-  <br>
-  <input type="email" name="email" value="<%= user.email %>" required />
-  <br>
-  <img src="/<%= user.picture %>" alt="Profile Picture" width="150" />
-  <br>
-  <input type="file" name="picture" />
-  <button type="submit">Save Changes</button>
-</form>
+<h2>Profile</h2>
 
+<div class="form-container">
+  <div class="profile-form">
+    <form action="/users/<%= user._id %>" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="picture" class="profile-picture-label">
+          <img src="/<%= user.picture %>" alt="Profile Picture" class="profile-picture" />
+        </label>
+        <input type="file" name="picture" id="picture" style="display: none;" />
+      </div>
+      
+      <div class="form-group">
+        <label for="first">First Name:</label>
+        <input type="text" name="first" id="first" value="<%= user.first %>" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="last">Last Name:</label>
+        <input type="text" name="last" id="last" value="<%= user.last %>" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="<%= user.email %>" required />
+      </div>
+      
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
 
+  <div class="password-update-form">
+    <h3>Update Password</h3>
+    <form action="/auth/<%= user._id %>?_method=PUT" method="POST">
+      <div class="form-group">
+        <label for="oldPassword">Old Password:</label>
+        <input type="password" name="oldPassword" id="oldPassword" placeholder="Old Password" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="newPassword">New Password:</label>
+        <input type="password" name="newPassword" id="newPassword" placeholder="New Password" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="confirmPassword">Confirm New Password:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm New Password" required />
+      </div>
+      
+      <button type="submit">Update</button>
+    </form>
+  </div>
+</div>
 
 <%- include("../partials/_footer") %>

@@ -1,9 +1,14 @@
+*{
+    box-sizing: border-box;
+
+}
 body{
     background-color: grey;
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 nav{
@@ -36,7 +41,7 @@ nav{
     border: 1px solid #ccc; /* Border for visibility */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
     z-index: 1000; /* Ensure it appears above other elements */
-    margin-top: 310px;
+    margin-top: 19%;
     right: 5px;
 }
 
@@ -51,7 +56,57 @@ nav{
     background-color: #f0f0f0; /* Highlight on hover */
 }
 
-/* .search-bar{
-    margin-left: 40%;
-    
-} */
+.search-form{
+    display: flex;
+    justify-content: left;
+    gap: 0.5rem;
+    padding-left: 37.5%;
+    width: auto;
+    height: 35%;
+}
+
+.search-bar{
+    width: 300px;
+}
+
+.search-button{
+    outline: none;
+    border: none;
+}
+
+.search-image{
+    height: 100%;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column; /* Stack forms vertically */
+    align-items: center; /* Center forms horizontally */
+    margin: 20px; /* Add margin for spacing */
+}
+
+.profile-form,
+.password-update-form {
+    background-color: white; /* Background for forms */
+    border: 1px solid #ccc; /* Border for visibility */
+    padding: 20px; /* Padding inside forms */
+    border-radius: 8px; /* Rounded corners */
+    width: 300px; /* Set a fixed width for forms */
+    margin-bottom: 20px; /* Space between forms */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form inputs */
+}
+
+.profile-picture {
+    width: 100%; /* Make the picture responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 200px; /* Rounded corners for the picture */
+    cursor: pointer;
+}
+
+.profile-picture-label:hover {
+   opacity: 0.5;
+}

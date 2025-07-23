@@ -126,7 +126,7 @@ const user_update_post = async (req, res) => {
   }
 
   const updatedUser = await User.findByIdAndUpdate(req.params.id, updateData, { new: true });
-  res.redirect(`/users/${updatedUser._id}`);
+  res.redirect(req.get("referer"));//refresh page
 };
 
 module.exports = {

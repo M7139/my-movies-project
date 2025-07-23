@@ -48,7 +48,7 @@ const auth_sign_in_post = async (req, res) => {
       _id: user._id
     }
 
-    res.redirect(`/users/${user._id}`)
+    res.redirect(`/users/${user._id}/edit`)
   } catch (error) {
     console.error('An error has occurred signing in a user!', error.message)
   }
@@ -82,7 +82,7 @@ const auth_update_password_put = async (req, res) => {
     const hashedPassword = bcrypt.hashSync(req.body.newPassword, 12)
     user.password = hashedPassword
     await user.save()
-    res.render('./auth/confirm.ejs', { user })
+    auth_sign_out_post(req,res)  
   } catch (error) {
     console.error("An error has occurred updating a user's password!", error.message)
   }
