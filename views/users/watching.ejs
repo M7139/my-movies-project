@@ -1,31 +1,27 @@
 <%- include("../partials/_header") %>
 <h1>Currently Watching</h1>
 <% if (movies && movies.length > 0) { %>
-  <div class="movie-grid">
-    <% movies.forEach(movie => { %>
-      <div class="movie-card">
-        <a href="/movies/<%= movie.imdbID %>">
-        <% if (movie.picture) { %>
-          <img src="<%= movie.picture %>" alt="<%= movie.title %>" class="movie-poster">
-        <% } %>
-        </a>
-        <h3><%= movie.title %></h3>
-        <p><%= movie.description %></p>
-        <form action="/users/<%= user._id %>/remove/<%= movie._id %>" method="POST">
-          <input type="hidden" name="listType" value="watching">
-          <button type="submit" class="btn-remove">Remove</button>
-        </form>
-      </div>
-    <% }) %>
+<div class="movie-grid">
+  <% movies.forEach(movie => { %>
+  <div class="movie-card">
+    <a href="/movies/<%= movie.imdbID %>">
+      <% if (movie.picture) { %>
+      <img
+        src="<%= movie.picture || '/Default/default_movie_poster.jpg' %>"
+        alt="<%= movie.title %>"
+        class="movie-poster"
+      />
+      <% } %>
+    </a>
+    <h3><%= movie.title %></h3>
+    <p><%= movie.description %></p>
+    <form action="/users/<%= user._id %>/remove/<%= movie._id %>" method="POST">
+      <input type="hidden" name="listType" value="watching" />
+      <button type="submit" class="btn-remove">Remove</button>
+    </form>
   </div>
+  <% }) %>
+</div>
 <% } else { %>
-  <p>You're not currently watching any movies.</p>
-<% } %>
-
-<%- include("../partials/_footer") %>
-
-
-
-
-
-
+<p>You're not currently watching any movies.</p>
+<% } %> <%- include("../partials/_footer") %>
