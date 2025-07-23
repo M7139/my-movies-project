@@ -2,28 +2,43 @@
 
 <h1><%= movie.Title %> (<%= movie.Year %>)</h1>
 <% if (movie.Poster !== "N/A") { %>
-  <img src="<%= movie.Poster %>" alt="Poster" width="200" />
+<img src="<%= movie.Poster %>" alt="Poster" width="200" />
 <% } %>
 <p><strong>Genre:</strong> <%= movie.Genre %></p>
 <p><strong>Director:</strong> <%= movie.Director %></p>
-<p><strong>Actors:</strong> <%= movie.Actors %></p>
 <p><strong>Plot:</strong> <%= movie.Plot %></p>
 <p><strong>IMDb Rating:</strong> <%= movie.imdbRating %></p>
 
-<% if (user) { %>
-  <div class="movie-actions">
-    <form action="/movies/<%= movie.imdbID %>/add-to-list" method="POST">
-      <select name="listType" required>
-        <option value="">-- Select a list --</option>
-        <option value="willWatch">Will Watch</option>
-        <option value="watching">Watching</option>
-        <option value="watched">Watched</option>
-      </select>
-      <button type="submit">Add to List</button>
-    </form>
+<div class="actors-section">
+  <h3>Actors:</h3>
+  <div class="actors-grid">
+    <% actors.forEach(actor => { %>
+    <div class="actor-card">
+      <% if (actor.image) { %>
+      <img
+        src="<%= actor.image %>"
+        alt="<%= actor.name %>"
+        class="actor-image"
+      />
+      <% } else { %>
+      <div class="actor-placeholder">No Image</div>
+      <% } %>
+      <p class="actor-name"><%= actor.name %></p>
+    </div>
+    <% }); %>
   </div>
-<% } %>
+</div>
 
-<a href="/movies?movie_name=">Back to Search</a>
-
-<%- include("../partials/_footer") %>
+<% if (user) { %>
+<div class="movie-actions">
+  <form action="/movies/<%= movie.imdbID %>/add-to-list" method="POST">
+    <select name="listType" required>
+      <option value="">-- Select a list --</option>
+      <option value="willWatch">Will Watch</option>
+      <option value="watching">Watching</option>
+      <option value="watched">Watched</option>
+    </select>
+    <button type="submit">Add to List</button>
+  </form>
+</div>
+<% } %> <%- include("../partials/_footer") %>
