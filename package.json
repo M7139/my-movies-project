@@ -4,7 +4,8 @@
   "description": "A website user can organize their list of movies and tv series by adding them to different categories, like watched, watching, and plan to watch. and the user can update their password, the image of their profile and the user should register for the website to use it. The user can register for the web by inserting a username, email address, and password",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
