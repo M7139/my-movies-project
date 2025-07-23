@@ -31,4 +31,7 @@ A website user can organize their list of movies and tv series by adding them to
 - mongodb-mongoose
 
 # source /reference/attributions
-
+API's
+https://www.omdbapi.com
+https://en.wikipedia.org/api/
+DEEPSEEK has been used to make the actors section via calling the wiki api (i wanted to do it myself but i needed to sleep ) 
