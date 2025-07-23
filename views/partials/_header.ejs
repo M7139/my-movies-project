@@ -16,23 +16,31 @@
 
       <form action="/movies" method="GET" class="search-form">
         <input type="text" name="movie_name" required class="search-bar" />
-        <button type="submit" class="search-submit"><img src="./search-icon.png" alt="search-icon" class="search-image"></button>
+        <button type="submit" class="search-submit">
+          <img src="./search-icon.png" alt="search-icon" class="search-image" />
+        </button>
       </form>
 
-      <a href="#" class="profile-link">
-        <img
-          src="/<%= user.picture %>"
-          alt="Profile Picture"
-          class="profile-pic"
-        />
-      </a>
-      <div class="dropdown-menu" id="dropdownMenu">
-        <a href="/users/<%= user._id %>/edit">Profile</a>
+      <div>
         <a href="/users/<%= user._id %>/watching">Watching</a>
         <a href="/users/<%= user._id %>/watched">Watched</a>
         <a href="/users/<%= user._id %>/will-watch">Will Watch</a>
-        <a href="/auth/sign-out">Sign Out</a>
       </div>
+
+      <div class="profile-link-container">
+        <a href="#" class="profile-link">
+          <img
+            src="/<%= user.picture %>"
+            alt="Profile Picture"
+            class="profile-pic"
+          />
+        </a>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="/users/<%= user._id%>/edit">Profile</a>
+          <a href="/auth/sign-out">Sign Out</a>
+        </div>
+      </div>
+
       <% } %>
     </nav>
   </body>

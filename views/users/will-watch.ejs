@@ -5,13 +5,13 @@
   <% movies.forEach(movie => { %>
   <div class="movie-card">
     <a href="/movies/<%= movie.imdbID %>">
-    <% if (movie.picture) { %>
-    <img
-      src="<%= movie.picture %>"
-      alt="<%= movie.title %>"
-      class="movie-poster"
-    />
-    <% } %>
+      <% if (movie.picture) { %>
+      <img
+        src="<%= movie.picture || '/Default/default_movie_poster.jpg' %>"
+        alt="<%= movie.title %>"
+        class="movie-poster"
+      />
+      <% } %>
     </a>
     <h3><%= movie.title %></h3>
     <p><%= movie.description %></p>
@@ -24,6 +24,4 @@
 </div>
 <% } else { %>
 <p>Your watchlist is empty.</p>
-<% } %>
-
-<%- include("../partials/_footer") %>
+<% } %> <%- include("../partials/_footer") %>
