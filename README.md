@@ -13,12 +13,13 @@ A website user can organize their list of movies and tv series by adding them to
 # Wireframes/Screenshot Design
 ![MS Paint](images/signup-page.png)
 ![MS Paint](images/movie-list-page.png)
+![MS Pait](images/edit-show.png)
 
-![MS Pait](edit-show.png)
 
-
-# Pseudo-code for website
-
+# RESTful Table
+![Auth Routes](images/AR.jpg)
+![User Routes](images/UR.jpg)
+![Movie Routes](images/MR.jpg)
 
 
 # Lists/Tech used
