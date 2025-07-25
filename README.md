@@ -10,21 +10,37 @@ A website user can organize their list of movies and tv series by adding them to
 1. Planning by Drawing 
 
 
-# Wireframes/Screenshot Design
+# Wireframes Design
 ![MS Paint](images/signup-page.png)
 ![MS Paint](images/movie-list-page.png)
 ![MS Pait](images/edit-show.png)
-
-
+# ERD Design
+![ERD Design](images/ERD.jpg)
 # RESTful Table
 ![Auth Routes](images/AR.jpg)
 ![User Routes](images/UR.jpg)
 ![Movie Routes](images/MR.jpg)
 
 
+# Screenshot Design
+![sign in-up](images/sign-in-up.png)
+The user can sign in or sign up if they don't have an account 
+![sign up](images/sign-up.png)
+The user creates a new account to use the website
+![sign in](images/sign-in.png)
+User signs in by their account 
+![Profile Page](images/profile%20page.png)
+The user can edit the information and update the password
+![Serach of movie ](images/search%20of%20movie.png)
+The user can search for a movie and add it to one of the lists if they log in
+![Add moive to list](images//add%20moive%20to%20list.png)
+The user can drop down a menu to choose a list to add a movie
+![list Page](images/list%20page.png)
+The user's list of movies
+
+
 # Lists/Tech used
 
-- VS Code for Editing
 - html
 - JavaScript
 - express
@@ -32,7 +48,6 @@ A website user can organize their list of movies and tv series by adding them to
 - mongodb-mongoose
 
 # source /reference/attributions
-API's
-https://www.omdbapi.com
-https://en.wikipedia.org/api/
-DEEPSEEK has been used to make the actors section via calling the wiki api (i wanted to do it myself but i needed to sleep ) 
+- [API's Serach](https://www.omdbapi.com)
+- [API's actors image](https://en.wikipedia.org/api/)
+- [Background image](https://ph-files.imgix.net/ef79fb5e-2dcf-42c5-8e73-238facd68376.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=569&h=320&fit=max&frame=1&dpr=2)
