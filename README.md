@@ -38,6 +38,11 @@ The user can drop down a menu to choose a list to add a movie
 ![list Page](images/list%20page.png)
 The user's list of movies
 
+# Future work
+- Advanced Search (by year, genre, etc.)
+- Custom Themes (dark/light mode)
+- Review/Notes for watched movies
+- Use Media Queries (Mobile,Tablet, Desktop,)
 
 # Lists/Tech used
 
