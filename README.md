@@ -1,4 +1,4 @@
-# Project Title [ Movie List Website]
+# Movie List Website
 # Date 7/17/2025
 # By: Mohammed Rashed , Abdulla Zaid , Manaf  Hujairi
 # A brief Description of Project
