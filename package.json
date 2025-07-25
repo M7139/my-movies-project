@@ -20,12 +20,12 @@
   "homepage": "https://github.com/M7139/my-movies-project#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
-    "dotenv": "^17.2.0",
+    "dotenv": "^17.2.1",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
     "method-override": "^3.0.0",
-    "mongoose": "^8.16.4",
+    "mongoose": "^8.16.5",
     "morgan": "^1.10.1",
     "multer": "^2.0.2",
     "session": "^0.1.0"
