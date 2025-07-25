@@ -15,6 +15,7 @@ body {
 
 /* ========== NAVBAR ========== */
 nav {
+  height: 8%;
   background-color: #ffd700;
   padding: 1rem 2rem;
   display: flex;

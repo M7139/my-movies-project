@@ -10,14 +10,15 @@
   <body>
     <nav>
       <% if (!user) { %>
-
-      <a href="/auth/sign-up">Sign Up</a>
-      <a href="/auth/sign-in">Sign In</a>
+      <div>
+        <a href="/auth/sign-up">Sign Up</a>
+        <a href="/auth/sign-in">Sign In</a>
+      </div>
       <% } else { %>
 
       <div class="user-list-container">
         <a href="#" class="list-link">
-          <img src="/label.png" alt="user-lists" class="list-label" />
+          <img src="Default/label.png" alt="user-lists" class="list-label" />
         </a>
         <div class="list-dropdown-menu" id="listMenu">
           <a href="/users/<%= user._id %>/watching">Watching</a>
